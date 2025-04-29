@@ -12,13 +12,13 @@ def search_movie(movie_name):
     results = response.json().get("results", [])
     return results
 
-# def get_movie_details(movie_id):
-#     """Get details of a movie by ID."""
-#     url = f"{BASE_URL}/movie/{movie_id}"
-#     params = {"api_key": API_KEY}
-#     response = requests.get(url, params=params)
-#     response.raise_for_status()
-#     return response.json()
+def get_movie_details(movie_id):
+    """Get details of a movie by ID."""
+    url = f"{BASE_URL}/movie/{movie_id}"
+    params = {"api_key": API_KEY}
+    response = requests.get(url, params=params)
+    response.raise_for_status()
+    return response.json()
 
 # def get_similar_movies(movie_id):
 #     """Get similar movies to a given movie."""
@@ -48,11 +48,11 @@ def main():
         selected_movie = search_results[int(selection) - 1] if selection else search_results[0]
 
         movie_id = selected_movie['id']
-        # movie_details = get_movie_details(movie_id)
+        movie_details = get_movie_details(movie_id)
 
-        # print(f"\n🎬 Movie: {movie_details['title']} ({movie_details.get('release_date', 'N/A')[:4]})")
-        # print(f"⭐ Rating: {movie_details.get('vote_average', 'N/A')}")
-        # print(f"📝 Overview: {movie_details.get('overview', 'No overview available.')}\n")
+        print(f"\n🎬 Movie: {movie_details['title']} ({movie_details.get('release_date', 'N/A')[:4]})")
+        print(f"⭐ Rating: {movie_details.get('vote_average', 'N/A')}")
+        print(f"📝 Overview: {movie_details.get('overview', 'No overview available.')}\n")
 
         # similar_movies = get_similar_movies(movie_id)
 
