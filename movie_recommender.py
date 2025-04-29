@@ -29,45 +29,45 @@ def search_movie(movie_name):
 #     results = response.json().get("results", [])
 #     return results[:5] 
 
-# def main():
-#     print("🎥 Welcome to Movie Night Recommender 🎥")
-#     movie_name = input("Enter a movie you like: ")
+def main():
+    print("🎥 Welcome to Movie Night Recommender 🎥")
+    movie_name = input("Enter a movie you like: ")
 
-#     try:
-#         search_results = search_movie(movie_name)
+    try:
+        search_results = search_movie(movie_name)
 
-#         if not search_results:
-#             print("❌ No movies found. Please try again.")
-#             return
+        if not search_results:
+            print("❌ No movies found. Please try again.")
+            return
 
-#         print("\nSearch Results:")
-#         for idx, movie in enumerate(search_results, 1):
-#             print(f"{idx}. {movie['title']} ({movie.get('release_date', 'N/A')[:4]})")
+        print("\nSearch Results:")
+        for idx, movie in enumerate(search_results, 1):
+            print(f"{idx}. {movie['title']} ({movie.get('release_date', 'N/A')[:4]})")
 
-#         selection = input("\nSelect a movie by number (or press Enter to pick the first): ")
-#         selected_movie = search_results[int(selection) - 1] if selection else search_results[0]
+        selection = input("\nSelect a movie by number (or press Enter to pick the first): ")
+        selected_movie = search_results[int(selection) - 1] if selection else search_results[0]
 
-#         movie_id = selected_movie['id']
-#         movie_details = get_movie_details(movie_id)
+        movie_id = selected_movie['id']
+        # movie_details = get_movie_details(movie_id)
 
-#         print(f"\n🎬 Movie: {movie_details['title']} ({movie_details.get('release_date', 'N/A')[:4]})")
-#         print(f"⭐ Rating: {movie_details.get('vote_average', 'N/A')}")
-#         print(f"📝 Overview: {movie_details.get('overview', 'No overview available.')}\n")
+        # print(f"\n🎬 Movie: {movie_details['title']} ({movie_details.get('release_date', 'N/A')[:4]})")
+        # print(f"⭐ Rating: {movie_details.get('vote_average', 'N/A')}")
+        # print(f"📝 Overview: {movie_details.get('overview', 'No overview available.')}\n")
 
-#         similar_movies = get_similar_movies(movie_id)
+        # similar_movies = get_similar_movies(movie_id)
 
-#         if not similar_movies:
-#             print("😔 No similar movies found.")
-#         else:
-#             print("🎯 Recommended for you:")
-#             for idx, movie in enumerate(similar_movies, 1):
-#                 title = movie['title']
-#                 rating = movie.get('vote_average', 'N/A')
-#                 year = movie.get('release_date', 'N/A')[:4]
-#                 print(f"{idx}. {title} ({year}) - ⭐ {rating}")
+        # if not similar_movies:
+        #     print("😔 No similar movies found.")
+        # else:
+        #     print("🎯 Recommended for you:")
+        #     for idx, movie in enumerate(similar_movies, 1):
+        #         title = movie['title']
+        #         rating = movie.get('vote_average', 'N/A')
+        #         year = movie.get('release_date', 'N/A')[:4]
+        #         print(f"{idx}. {title} ({year}) - ⭐ {rating}")
 
-#     except Exception as e:
-#         print(f"⚠️ Error: {e}")
+    except Exception as e:
+        print(f"⚠️ Error: {e}")
 
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()
